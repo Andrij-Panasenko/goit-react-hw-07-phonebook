@@ -5,19 +5,33 @@ import { ContactAddForm } from './ContactAddForm/ContactAddForm';
 import { ContactList } from './ContactList/ContactList';
 import { Title } from './Title/Title';
 import { Filter } from './Filter/Filter';
+import { useDispatch, useSelector } from 'react-redux';
+import { useEffect } from 'react';
+import { fetchContacts } from 'redux/operations';
+import { selectError, selectIsLoading } from 'redux/seceltors';
 
 
 export const App = () => {
+  const dispatch = useDispatch();
+  // const error = useSelector(selectError)
+  // const isLoading = useSelector(selectIsLoading)
+  
+  useEffect(() => {
+    dispatch(fetchContacts());
+  }, [dispatch]);
+  
   return (
     <>
       <GlobalStyle />
-      <Wrapper>
-        <h1>Phonebook</h1>
-        <ContactAddForm />
-        <Title title="Contacts" />
-        <Filter />
-        <ContactList />
-      </Wrapper>
+      
+        <Wrapper>
+          <h1>Phonebook</h1>
+          <ContactAddForm />
+          <Title title="Contacts" />
+          <Filter />
+          <ContactList />
+        </Wrapper>
+      
     </>
   );
 };

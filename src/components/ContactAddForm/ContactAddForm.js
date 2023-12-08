@@ -7,7 +7,7 @@ import {
   Button,
 } from './ContactAddForm.styled';
 import * as Yup from 'yup';
-import { addContact } from 'redux/contactsSlice';
+// import { addContact } from 'redux/contactsSlice';
 import { useDispatch, useSelector } from 'react-redux';
 import { selectContacts } from 'redux/seceltors';
 
@@ -30,7 +30,7 @@ export const ContactAddForm = () => {
       return;
     };
 
-    dispatch(addContact(newContact));
+    // dispatch(addContact(newContact));
   }
       
 

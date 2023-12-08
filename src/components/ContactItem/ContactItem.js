@@ -1,6 +1,6 @@
 import { useDispatch } from 'react-redux';
 import { Button, Contact, NameWrapp } from './ContactItem.styled';
-import { deleteContact } from 'redux/contactsSlice';
+// import { deleteContact } from 'redux/contactsSlice';
 
 export const ContactItem = ({
   values: { id, name, number },
@@ -13,7 +13,7 @@ export const ContactItem = ({
         <p>{name}:</p>
         <p>{number}</p>
       </NameWrapp>
-      <Button type="button" onClick={() => dispatch(deleteContact(id))}>
+      <Button type="button" >
         x
       </Button>
     </Contact>
