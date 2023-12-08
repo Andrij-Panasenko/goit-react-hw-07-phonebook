@@ -1,6 +1,7 @@
 import axios from 'axios';
 
-axios.defaults.baseURL = 'https://657067eb09586eff6641503f.mockapi.io/phonebook';
+axios.defaults.baseURL =
+  'https://657067eb09586eff6641503f.mockapi.io/phonebook';
 
 //запит за всіма контактами
 export const fetchContacts = async () => {
@@ -21,4 +22,4 @@ export const deleteContact = async contactId => {
   const response = await axios.delete(`/contacts/${contactId}`);
 
   return response.data;
-}
+};
