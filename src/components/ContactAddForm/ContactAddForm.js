@@ -7,9 +7,9 @@ import {
   Button,
 } from './ContactAddForm.styled';
 import * as Yup from 'yup';
-import { addContact, getContacts } from 'redux/contactsSlice';
+import { addContact } from 'redux/contactsSlice';
 import { useDispatch, useSelector } from 'react-redux';
-
+import { selectContacts } from 'redux/seceltors';
 
 const contactSchema = Yup.object().shape({
   name: Yup.string().min(2, 'Too short!').required('Name is required'),
@@ -20,7 +20,7 @@ const contactSchema = Yup.object().shape({
 
 export const ContactAddForm = () => {
   const dispatch = useDispatch();
-  const contacts = useSelector(getContacts);
+  const contacts = useSelector(selectContacts);
 
   const addNewContact = newContact => {
     const hasContact = contacts.some(contact => contact.name === newContact.name);
