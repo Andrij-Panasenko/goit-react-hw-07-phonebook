@@ -9,29 +9,28 @@ import { useDispatch, useSelector } from 'react-redux';
 import { useEffect } from 'react';
 import { fetchContacts } from 'redux/operations';
 import { selectError, selectIsLoading } from 'redux/seceltors';
-
+import Notiflix from 'notiflix';
 
 export const App = () => {
   const dispatch = useDispatch();
-  // const error = useSelector(selectError)
-  // const isLoading = useSelector(selectIsLoading)
-  
+  const error = useSelector(selectError);
+  const isLoading = useSelector(selectIsLoading);
+
   useEffect(() => {
     dispatch(fetchContacts());
   }, [dispatch]);
-  
+
   return (
     <>
       <GlobalStyle />
-      
-        <Wrapper>
-          <h1>Phonebook</h1>
-          <ContactAddForm />
-          <Title title="Contacts" />
-          <Filter />
-          <ContactList />
-        </Wrapper>
-      
+      {isLoading ? Notiflix.Loading.dots('Please, wait...') : Notiflix.Loading.remove()}
+      <Wrapper>
+        <h1>Phonebook</h1>
+        <ContactAddForm />
+        <Title title="Contacts" />
+        <Filter />
+        <ContactList />
+      </Wrapper>
     </>
   );
 };
