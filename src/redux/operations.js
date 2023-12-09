@@ -19,7 +19,7 @@ export const fetchContacts = createAsyncThunk(
 );
 
 // запит для додавання контакту
-export const addContacts = createAsyncThunk(
+export const addContact = createAsyncThunk(
   'contacts/addContact',
   async (newContact, thunkAPI) => {
     try {
@@ -33,7 +33,7 @@ export const addContacts = createAsyncThunk(
 );
 
 // запит для видалення контакту
-export const deleteContacts = createAsyncThunk(
+export const deleteContact = createAsyncThunk(
   'contacts/deleteContact',
   async (contactId, thunkAPI) => {
     try {
