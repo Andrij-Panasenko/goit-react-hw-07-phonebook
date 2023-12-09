@@ -7,32 +7,41 @@ import {
   Button,
 } from './ContactAddForm.styled';
 import * as Yup from 'yup';
-// import { addContact } from 'redux/contactsSlice';
 import { useDispatch, useSelector } from 'react-redux';
 import { selectContacts } from 'redux/seceltors';
+import { addContact } from 'redux/operations';
 
 const contactSchema = Yup.object().shape({
   name: Yup.string().min(2, 'Too short!').required('Name is required'),
   number: Yup.number().required('Must be filled'),
 });
 
-
-
 export const ContactAddForm = () => {
   const dispatch = useDispatch();
   const contacts = useSelector(selectContacts);
 
   const addNewContact = newContact => {
-    const hasContact = contacts.some(contact => contact.name === newContact.name);
+    const hasContact = contacts.some(
+      contact => contact.name === newContact.name
+    );
 
     if (hasContact) {
       alert('A contact with that name already exists');
       return;
-    };
+    }
+    dispatch(addContact(newContact));
+  };
 
-    // dispatch(addContact(newContact));
-  }
-      
+  // const addNewContact = newContact => {
+  //   const hasContact = contacts.some(contact => contact.name === newContact.name);
+
+  //   if (hasContact) {
+  //     alert('A contact with that name already exists');
+  //     return;
+  //   };
+
+  // dispatch(addContact(newContact));
+  // }
 
   return (
     <>
