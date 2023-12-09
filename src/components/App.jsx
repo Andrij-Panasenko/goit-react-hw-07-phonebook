@@ -8,12 +8,11 @@ import { Filter } from './Filter/Filter';
 import { useDispatch, useSelector } from 'react-redux';
 import { useEffect } from 'react';
 import { fetchContacts } from 'redux/operations';
-import { selectError, selectIsLoading } from 'redux/seceltors';
+import { selectIsLoading } from 'redux/seceltors';
 import Notiflix from 'notiflix';
 
 export const App = () => {
   const dispatch = useDispatch();
-  const error = useSelector(selectError);
   const isLoading = useSelector(selectIsLoading);
 
   useEffect(() => {
@@ -22,8 +21,9 @@ export const App = () => {
 
   return (
     <>
-      <GlobalStyle />
-      {isLoading ? Notiflix.Loading.dots('Please, wait...') : Notiflix.Loading.remove()}
+      {isLoading
+        ? Notiflix.Loading.dots('Please, wait...')
+        : Notiflix.Loading.remove()}
       <Wrapper>
         <h1>Phonebook</h1>
         <ContactAddForm />
@@ -31,6 +31,7 @@ export const App = () => {
         <Filter />
         <ContactList />
       </Wrapper>
+      <GlobalStyle />
     </>
   );
 };

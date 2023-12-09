@@ -32,17 +32,6 @@ export const ContactAddForm = () => {
     dispatch(addContact(newContact));
   };
 
-  // const addNewContact = newContact => {
-  //   const hasContact = contacts.some(contact => contact.name === newContact.name);
-
-  //   if (hasContact) {
-  //     alert('A contact with that name already exists');
-  //     return;
-  //   };
-
-  // dispatch(addContact(newContact));
-  // }
-
   return (
     <>
       <Formik

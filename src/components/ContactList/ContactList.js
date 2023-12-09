@@ -10,9 +10,9 @@ export const ContactList = () => {
     <div>
       <ul>
         {filteredContacts.length > 0 ? (
-          filteredContacts.map(item => {
-            return <ContactItem key={item.id} values={item} />;
-          })
+          filteredContacts.map(item => (
+            <ContactItem key={item.id} values={item} />
+          ))
         ) : (
           <Notify>
             Your contatcs is empty. Please add contact to your list

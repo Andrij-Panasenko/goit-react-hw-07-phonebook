@@ -7,16 +7,15 @@ export const Filter = () => {
   const dispatch = useDispatch();
   const filter = useSelector(selectFilterValue);
 
- 
-    return (
-      <Label>
-        Find contact by name:
-        <Input
-          type="text"
-          placeholder="Name"
-          value={filter}
-          onChange={evt => dispatch(setFilter(evt.target.value))}
-        />
-      </Label>
-    );
-  };
+  return (
+    <Label>
+      Find contact by name:
+      <Input
+        type="text"
+        placeholder="Name"
+        value={filter}
+        onChange={evt => dispatch(setFilter(evt.target.value))}
+      />
+    </Label>
+  );
+};
